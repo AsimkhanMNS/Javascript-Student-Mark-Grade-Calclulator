@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Exam Result Data Calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <!-- FORM -->
+    <div class="container form mt-5">
+        <div class="shadow p-3 mb-5 bg-body rounded">
+            <p class="text-center text">Exam Result Data Calculator</p>
+            <div class="line"></div>
+            <form name="myForm" action="">
+                <div class="mb-3" id="alert1">
+                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                    <div class="d-flex">
+                        <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Name">
+                        <div id="icon1">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" id="alert2">
+                    <label for="exampleFormControlInput1" class="form-label">Tamil</label>
+                    <div class="d-flex">
+                        <input type="text" name="tamil" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Mark">
+                        <div id="icon2">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" id="alert3">
+                    <label for="exampleFormControlInput1" class="form-label">English</label>
+                    <div class="d-flex">
+                        <input type="text" name="english" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Mark">
+                        <div id="icon3">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" id="alert4">
+                    <label for="exampleFormControlInput1" class="form-label">Mathematics</label>
+                    <div class="d-flex">
+                        <input type="text" name="maths" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Mark">
+                        <div id="icon4">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" id="alert5">
+                    <label for="exampleFormControlInput1" class="form-label">Science</label>
+                    <div class="d-flex">
+                        <input type="text" name="science" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Mark">
+                        <div id="icon5">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3" id="alert6">
+                    <label for="exampleFormControlInput1" class="form-label">Social Science</label>
+                    <div class="d-flex">
+                        <input type="text" name="social" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Mark">
+                        <div id="icon6">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-1 d-grid">
+                    <button type="button" id="btn" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- FORM END -->
+    <!-- TABLE START -->
+    <div class="container mt-3 table-responsive-sm">
+        <div class=" mb-2 mt-2 col-md-5 col-sm-12">
+            <div class="d-flexi">
+                <div class="d-flex">
+                    <input type="text" name="search" class="form-control" id="searchInput"
+                        placeholder="search the students name">
+                    <i class='fa fa-search' style='font-size:25px;padding:5px;color:#0d6efd;'></i>
+                </div>
+                <div id="editor">
+                </div>
+            </div>
+        </div>
+        <div id="pdfcontent">
+            <p class="text-center text" id="text"></p>
+            <table class="table table-bordered " id="contentToPrint">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th scope="col">S.NO</th>
+                        <th scope="col">DATE</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">TAMIL</th>
+                        <th scope="col">ENGLISH</th>
+                        <th scope="col">MATHS</th>
+                        <th scope="col">SCIENCE</th>
+                        <th scope="col">SOCIAL SCIENCE</th>
+                        <th scope="col">TOTAL</th>
+                        <th scope="col">PERCENTAGE(%)</th>
+                        <th scope="col">RESULT</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- TABLE END -->
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+    <!-- JS FILE -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
